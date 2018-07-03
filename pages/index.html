@@ -1,0 +1,109 @@
+<div style="width:100%">
+    <a class="projectObj" style="background-color:#87b822">
+        <img class="picture right" src="" />
+        <div class="wrap">
+            <div class="name"></div>
+
+            <h1>
+                V.P.Shanmugam
+
+            </h1>
+            <div class="txt flright">
+
+                <p>
+                    Email:shanmugam.1501223@srec.ac.in
+                </p>
+
+            </div>
+
+        </div>
+        <div class="txt flright">
+            <ul>
+                <p>
+                    PhoneNO:8754637352
+                </p>
+            </ul>
+        </div>
+        <div class="txt flright">
+            <ul>
+                <li>
+                    <p>
+                        DOB:25-2-1997
+
+                    </p>
+                    <li>
+                        <p>
+                            Language Known:Tamil,English,Telugu
+                        </p>
+
+                    </li>
+                </li>
+            </ul>
+
+        </div>
+        <div class="image flleft">
+            <p>
+             Address:mig-10
+			 old astc hudco
+			 hosur-635109
+            </p>
+        </div>
+
+
+
+    </a>
+
+
+    <script>
+        $('.projectObj').bind('click', function (e) {
+            e.preventDefault();
+
+            var me = this;
+            var width = $(me).width() / 1.5;
+            $(me).find('.wrap').width($(me).find('.wrap').width());
+
+            $(me).animate({
+                opacity: 0,
+                marginLeft: -width
+            }, 500);
+
+            var delayN = 150;
+            var delayP = 150;
+
+            var nextEl = $(me).nextAll('.projectObj');
+            var prevEl = $(me).prevAll('.projectObj');
+
+            nextEl.each(function (index, elem) {
+                setTimeout(function () {
+
+                    $(elem).find('.wrap').width($(elem).find('.wrap').width());
+
+                    $(elem).animate({
+                        opacity: 0,
+                        marginLeft: -width
+                    }, 500, function () {
+                    });
+                }, delayN);
+                delayN += 100;
+            });
+
+            prevEl.each(function (index, elem) {
+                setTimeout(function () {
+                    $(elem).find('.wrap').width($(elem).find('.wrap').width());
+
+                    $(elem).animate({
+                        opacity: 0,
+                        marginLeft: -width
+                    }, 500, function () {
+                    });
+                }, delayP);
+                delayP += 100;
+            });
+
+            setTimeout(function () {
+                document.location = $(me).attr('href');
+            }, 1000)
+
+            return false;
+        });
+    </script>
